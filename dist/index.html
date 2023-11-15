@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body  >
+    <div id="main" class=" h-[500px] w-[600px] m-[auto] text-zinc-100  bg-teal-800 shadow-2xl shadow-slate-600 mt-10 box-border p-5  border-black border-4 rounded-3xl flex flex-col justify-evenly">
+      <div>
+        <h2 >Passoword Generator</h2>
+      </div>
+      <div>
+        <div id="btn">
+          <button id="btn-one" class="bg-orange-500 w-28 h-10 border-2 rounded-md hover:border-slate-950 ">Generate</button>
+          <button id="btn-two" class="bg-orange-500 w-36 h-10 box-border border-2 rounded-md hover:border-slate-950">Copy to Clipboard</button>
+        </div>
+      </div>
+      <div id="Password" class=" h-10 w-[50%]  border-2 rounded-lg p-1">
+       Click on generate button
+      </div>
+      <div class="w-[60%] h-[50%] box-border border-2 border-slate-200 p-2 flex flex-col justify-evenly items-start rounded-md">
+        <div class="in">
+          <label for="lenght" >Password Length</label>
+          <input type="number" name="Length" id="len" class=" w-14 box-border border-2  px-1 rounded-md outline-none bg-orange-400 text-gray-950" />
+        </div>
+
+        <div class="in">
+          <label for="uc">Include Uppercase letters</label>
+          <input type="checkbox" name="uc" id="uc" class="ml-20 "/>
+        </div>
+
+        <div class="in">
+          <label for="lc">Include lower case letters</label>
+          <input type="checkbox" name="lc" id="lc" class="ml-20" />
+        </div>
+
+        <div class="in">
+          <label for="num">Include Numbers</label>
+          <input type="checkbox" name="num" id="num" class=" ml-[137px]"/>
+        </div>
+
+        <div class="in">
+          <label for="sym">Include Symbols</label>
+          <input type="checkbox" name="sym" id="sym" class="ml-[142px]" />
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
