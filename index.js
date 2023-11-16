@@ -40,18 +40,24 @@ function selected() {
 }
 function makePass() {
   selected();
-  for (let i = 1; i <= len.value; i++) {
-    fpassword += fchar[Math.floor(Math.random() * fchar.length)];
+  if (len.value >= 4) {
+    for (let i = 1; i <= len.value; i++) {
+      fpassword += fchar[Math.floor(Math.random() * fchar.length + 1)];
+    }
   }
 
   pg.textContent = fpassword;
   clicked = 1;
   sendPass = fpassword;
   fpassword = "";
-  if(uCase.checked==true || lCase.checked == true || num.checked == true || sym.checked == true && len.value >0){
+  if (
+    uCase.checked == true ||
+    lCase.checked == true ||
+    num.checked == true ||
+    (sym.checked == true && len.value > 0)
+  ) {
     pg.style.borderColor = "black";
   }
-  
 }
 
 //adding the click event which generates new password
@@ -62,12 +68,10 @@ function clipText() {
     pg.style.borderColor = "white";
     pg.textContent = " Click Generate button again for new ";
   }
- 
+
   fpassword = "";
 }
 
-  
-
-btnOne.addEventListener("click", makePass)
+btnOne.addEventListener("click", makePass);
 
 clip.addEventListener("click", clipText);
