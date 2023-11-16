@@ -1,10 +1,10 @@
-const lowerChar = ['a','b','c','d','e']
+const lowerChar = ["a", "b", "c", "d", "e"];
 
-const upperChar = ['A','B','C','D','E',];
-//   
+const upperChar = ["A", "B", "C", "D", "E"];
+//
 const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const symbol = ['!','@','#','%','^','&','*'];
+const symbol = ["!", "@", "#", "%", "^", "&", "*"];
 
 // let pl = document.getElementById("len");
 
@@ -16,11 +16,12 @@ let len = document.getElementById("len");
 
 let btnOne = document.querySelector("#btn-one");
 let pg = document.getElementById("Password");
-
+let clip = document.querySelector("#btn-two");
 let pass = [];
 let fchar = [];
 let fpassword = "";
-
+let clicked = 0;
+let sendPass = "";
 function selected() {
   if (uCase.checked == true) {
     fchar = pass.concat(upperChar);
@@ -34,6 +35,7 @@ function selected() {
   if (sym.checked == true) {
     fchar = fchar.concat(symbol);
   }
+
   return fchar;
 }
 function makePass() {
@@ -41,23 +43,31 @@ function makePass() {
   for (let i = 1; i <= len.value; i++) {
     fpassword += fchar[Math.floor(Math.random() * fchar.length)];
   }
+
+  pg.textContent = fpassword;
+  clicked = 1;
+  sendPass = fpassword;
+  fpassword = "";
+  if(uCase.checked==true || lCase.checked == true || num.checked == true || sym.checked == true && len.value >0){
+    pg.style.borderColor = "black";
+  }
   
-  pg.textContent =  fpassword;
 }
-btnOne.addEventListener('click',makePass);
 
+//adding the click event which generates new password
 
-let clip = document.querySelector("#btn-two")
-
-function clipText(){
-
-  navigator.clipboard.writeText(fpassword)
+function clipText() {
+  navigator.clipboard.writeText(sendPass);
+  if (clicked == 1) {
+    pg.style.borderColor = "white";
+    pg.textContent = " Click Generate button again for new ";
+  }
+ 
+  fpassword = "";
 }
-clip.addEventListener('click',clipText);
 
-setTimeout(function(){
-  alert('generate again');
-  btnOne.removeEventListener('click',makePass);
-},30000)
+  
 
+btnOne.addEventListener("click", makePass)
 
+clip.addEventListener("click", clipText);
