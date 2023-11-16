@@ -42,7 +42,7 @@ function makePass() {
   selected();
   if (len.value >= 4) {
     for (let i = 1; i <= len.value; i++) {
-      fpassword += fchar[Math.floor(Math.random() * fchar.length + 1)];
+      fpassword += fchar[Math.floor(Math.random() *fchar.length)];
     }
   }
 
